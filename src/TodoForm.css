@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro');
+
+.TodoForm {
+  display: flex;
+  align-items: center;
+}
+
+.TodoForm > label {
+  font-family: 'Source Sans Pro';
+  font-size: 1rem;
+  line-height: 1.4rem;
+  margin: 0.7rem;
+}
+
+.TodoForm > input {
+  flex-grow: 1;
+  font-family: 'Source Sans Pro';
+  font-size: 1rem;
+  line-height: 1.4rem;
+  margin: 0.7rem;
+}
+
+.TodoForm > button {
+  font-family: 'Source Sans Pro';
+  font-size: 1rem;
+  margin: 0.7rem;
+}
