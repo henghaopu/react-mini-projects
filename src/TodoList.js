@@ -10,11 +10,18 @@ class TodoList extends Component {
 
     this.state = {
       todos: [
-        { id: uuidv4(), task: 'Learn React', color: '#168cc1', isDone: false },
+        {
+          id: uuidv4(),
+          task: 'Learn React',
+          color: '#168cc1',
+          isDone: false,
+          isEditing: false,
+        },
       ],
     };
 
     this.addNewTodo = this.addNewTodo.bind(this);
+    this.saveTodo = this.saveTodo.bind(this);
   }
 
   addNewTodo({ task, id }) {
@@ -26,6 +33,22 @@ class TodoList extends Component {
   deleteTodo(id) {
     this.setState(({ todos }) => ({
       todos: todos.filter((todo) => todo.id !== id),
+    }));
+  }
+
+  editTodo(id) {
+    this.setState(({ todos }) => ({
+      todos: todos.map((todo) =>
+        todo.id === id ? { ...todo, isEditing: true } : todo
+      ),
+    }));
+  }
+
+  saveTodo(id, editedTodo) {
+    this.setState(({ todos }) => ({
+      todos: todos.map((todo) =>
+        todo.id === id ? { ...todo, isEditing: false, task: editedTodo } : todo
+      ),
     }));
   }
 
@@ -43,13 +66,17 @@ class TodoList extends Component {
       <div className='TodoList'>
         <h1>TODO</h1>
         <TodoForm addNewTodo={this.addNewTodo} />
-        {todos.map(({ id, task, color, isDone }) => (
+        {todos.map(({ id, task, color, isDone, isEditing }) => (
           <Todo
             key={id}
+            id={id}
             task={task}
             color={color}
-            deleteTodo={() => this.deleteTodo(id)}
             isDone={isDone}
+            isEditing={isEditing}
+            deleteTodo={() => this.deleteTodo(id)}
+            editTodo={() => this.editTodo(id)}
+            saveTodo={this.saveTodo}
             toggleCrossOut={() => this.toggleCrossOut(id)}
           />
         ))}
