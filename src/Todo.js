@@ -5,12 +5,13 @@ class Todo extends Component {
     color: '#698474',
   };
   render() {
+    const { task, color, deleteTodo } = this.props;
     return (
       <div className='Todo' data-test='component-todo'>
-        <p className='Todo-task' style={{ color: this.props.color }}>
-          {this.props.task}
+        <p className='Todo-task' style={{ color }}>
+          {task}
         </p>
-        <i className='fas fa-trash Todo-icon'></i>
+        <i className='fas fa-trash Todo-icon' onClick={deleteTodo}></i>
         <i className='fas fa-pen Todo-icon'></i>
       </div>
     );

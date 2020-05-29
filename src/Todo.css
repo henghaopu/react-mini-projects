@@ -9,12 +9,17 @@
 .Todo-task {
   flex-grow: 1;
   line-height: 1.4rem;
-  margin: 0.7rem;
+  padding: 0.7rem;
   font-family: 'Patrick Hand SC', cursive;
 }
 
 .Todo-icon {
   line-height: 1.4rem;
-  margin: 0.7rem;
+  padding: 0.7rem;
   color: rgb(99, 99, 99);
+}
+
+.Todo-icon:hover {
+  background-color: lightgrey;
+  cursor: pointer;
 }
