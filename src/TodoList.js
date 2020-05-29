@@ -9,15 +9,17 @@ class TodoList extends Component {
     super(props);
 
     this.state = {
-      todos: [{ id: uuidv4(), task: 'Learn React', color: '#168cc1' }],
+      todos: [
+        { id: uuidv4(), task: 'Learn React', color: '#168cc1', isDone: false },
+      ],
     };
 
     this.addNewTodo = this.addNewTodo.bind(this);
   }
 
-  addNewTodo(todo) {
+  addNewTodo({ task, id }) {
     this.setState(({ todos }) => ({
-      todos: [...todos, todo],
+      todos: [...todos, { id, task, isDone: false }],
     }));
   }
 
@@ -27,18 +29,28 @@ class TodoList extends Component {
     }));
   }
 
+  toggleCrossOut(id) {
+    this.setState(({ todos }) => ({
+      todos: todos.map((todo) =>
+        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+      ),
+    }));
+  }
+
   render() {
     const { todos } = this.state;
     return (
       <div className='TodoList'>
         <h1>TODO</h1>
         <TodoForm addNewTodo={this.addNewTodo} />
-        {todos.map(({ id, task, color }) => (
+        {todos.map(({ id, task, color, isDone }) => (
           <Todo
             key={id}
             task={task}
             color={color}
             deleteTodo={() => this.deleteTodo(id)}
+            isDone={isDone}
+            toggleCrossOut={() => this.toggleCrossOut(id)}
           />
         ))}
       </div>
