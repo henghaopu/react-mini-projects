@@ -20,7 +20,10 @@ class TodoForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.addNewTodo({ ...this.state, id: uuidv4() });
+    this.props.addNewTodo({ task: this.state.newTodo, id: uuidv4() });
+    this.setState({
+      newTodo: '',
+    });
   }
 
   render() {

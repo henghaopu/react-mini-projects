@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro');
+
 .App {
+  width: 700px;
+  margin: 0 auto;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
