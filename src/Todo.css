@@ -1,0 +1,49 @@
+@import url('../node_modules/@fortawesome/fontawesome-free/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
+
+.Todo {
+  display: flex;
+  width: inherit;
+}
+
+.Todo-task {
+  flex-grow: 1;
+  line-height: 1.4rem;
+  padding: 0.7rem;
+  font-family: 'Patrick Hand SC', cursive;
+}
+
+.Todo-edit {
+  flex-grow: 1;
+  font-size: 1rem;
+  line-height: 1.4rem;
+  margin: 0.7rem;
+  font-family: 'Source Sans Pro';
+}
+
+.Todo > button {
+  font-family: 'Source Sans Pro';
+  font-size: 1rem;
+  margin: 0.7rem;
+  width: 66px;
+}
+
+.Todo > button:hover {
+  cursor: pointer;
+}
+
+.Todo-task:hover {
+  cursor: pointer;
+  background-color: lightyellow;
+}
+
+.Todo-icon {
+  line-height: 1.4rem;
+  padding: 0.7rem;
+  color: rgb(99, 99, 99);
+}
+
+.Todo-icon:hover {
+  background-color: lightyellow;
+  cursor: pointer;
+}
