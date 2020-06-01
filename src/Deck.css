@@ -1,0 +1,31 @@
+.Deck {
+  text-align: center;
+  margin-top: 0.7rem;
+}
+
+.Deck > h1 {
+  font-size: 24px;
+  line-height: 3.5rem;
+}
+
+.Deck > button {
+  color: rgb(48, 136, 52);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  line-height: 2.1rem;
+  padding: 0 1.4rem;
+}
+.Deck > button:hover {
+  cursor: pointer;
+  background-color: lightyellow;
+}
+.Deck > button:disabled {
+  cursor: default;
+  background-color: rgb(197, 197, 197);
+}
+
+.Deck-cardarea {
+  position: 'relative';
+  margin-top: 3.5rem;
+}
